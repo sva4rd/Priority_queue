@@ -202,7 +202,7 @@ void Insert_elements(map <string, Priority_queue>& queue, const string& name)
 	if (ins_del_number <= 0)
 	{
 		cout << "\nНеправильное значение!\n" << '\n';
-		exit;
+		return;
 	}
 	
 	for (int i = 0; i < ins_del_number; i++)
@@ -257,7 +257,7 @@ void Delete_queue_elements(map <string, Priority_queue>& queue, const string& na
 	if (iter->second.IsEmpty())
 	{
 		cout << "\nОшибка! Очередь пустая!\n";
-		exit;
+		return;
 	}
 	elements_number_delete(iter);
 	if (ins_del_number <= 0)

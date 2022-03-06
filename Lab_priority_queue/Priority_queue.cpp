@@ -9,6 +9,14 @@ void Priority_queue::Erase()
 void Priority_queue::Clone(const Priority_queue& Q)
 {
 	QItem* tmp = Q.front;
+	if (Q.GetSize() == 0)
+	{
+		front = Q.front;
+		rear = Q.rear;
+		rear_high = Q.rear_high;
+		rear_medium = Q.rear_medium;
+		rear_low = Q.rear_low;
+	}
 	for (unsigned i = 0; i < Q.GetSize(); i++)
 	{
 		Push(tmp->value, tmp->priority);
