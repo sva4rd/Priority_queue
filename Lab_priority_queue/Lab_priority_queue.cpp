@@ -101,9 +101,8 @@ void Queue_elements_number(const map <string, Priority_queue>& queue, const stri
 	if(prior_choice.size() != 1 || prior_choice <= "0" || prior_choice > "4")
 	{
 		cout << "\nНеправильный приоритет!\n";
-		exit;
+		return;
 	}
-	choice_number = stoi(prior_choice);
 	choice_number = stoi(prior_choice);
 	switch (choice_number)
 	{
@@ -274,10 +273,12 @@ void Delete_queue_elements(map <string, Priority_queue>& queue, const string& na
 void Front_element_info(map <string, Priority_queue>& queue, const string& name)
 {
 	auto iter = queue.find(name);
-	cout << "\nЗначение элемента: " << iter->second.GetFirst();
-	cout << "\nПриоритет элемента: ";
-	switch (iter->second.GetFirstPriority())
+	try
 	{
+		cout << "\nЗначение элемента: " << iter->second.GetFirst();
+		cout << "\nПриоритет элемента: ";
+		switch (iter->second.GetFirstPriority())
+		{
 		case Priority::high:
 		{
 			cout << "Высокий\n";
@@ -293,6 +294,11 @@ void Front_element_info(map <string, Priority_queue>& queue, const string& name)
 			cout << "Низкий\n";
 			break;
 		}
+		}
+	}
+	catch (exception& ex)
+	{
+		cout << '\n' << ex.what() << '\n';
 	}
 }
 

@@ -129,6 +129,7 @@ void Priority_queue::Push(int Ainfo, Priority element_prior)
 			{
 				rear->next = tmp;
 				rear = tmp;
+				rear_medium = rear;
 			}
 
 			size[1]++;
@@ -163,6 +164,7 @@ void Priority_queue::Push(int Ainfo, Priority element_prior)
 			{
 				rear->next = tmp;
 				rear = tmp;
+				rear_low = tmp;
 			}	
 
 			size[2]++;
